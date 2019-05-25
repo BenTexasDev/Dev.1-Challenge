@@ -23,7 +23,7 @@ public class DevChallenge{
                     histogram.put(word,1);
                 } else {
                     histogram.put(word,f+1);
-                    System.out.println(histogram);
+                    //System.out.println(histogram);
                 }
                 
             }   
