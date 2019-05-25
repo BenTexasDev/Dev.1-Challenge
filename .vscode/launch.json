@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Hist",
+            "request": "launch",
+            "mainClass": "Hist"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DevChallenge",
+            "request": "launch",
+            "mainClass": "DevChallenge"
+        }
+    ]
+}
