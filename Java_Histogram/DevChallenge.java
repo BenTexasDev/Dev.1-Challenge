@@ -34,7 +34,8 @@ public class DevChallenge{
     private static void printHistogram( HashMap<String,Integer> hm )
     {
         for(String h : hm.keySet()){
-            System.out.println(h + "|" + hm.get(h));
+            int value = hm.get(h);
+            System.out.println(h + "|" + "("+ value +")");
     }
 
         }
