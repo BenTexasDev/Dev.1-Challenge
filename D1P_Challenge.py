@@ -40,4 +40,5 @@ for line in fhand:
 for w in sorted(di, key=di.get, reverse = True):
         outputfile.write("{:8}{:2}{:5}{}".format(w,"|",di[w]*"=","("+str(di[w])+")""\n"))
 
+# Close output file
 outputfile.close()
