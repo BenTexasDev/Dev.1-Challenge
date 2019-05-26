@@ -50,13 +50,15 @@ public class DevChallenge {
         for (String m : map.keySet()) {
 
             int value = map.get(m);
-            System.out.printf(m + "|");
+            String separate = "|";
+            String occurence = ("(" + value + ")\n");
+            System.out.printf("%-7s %-2s", m, separate);
 
             for (int i = 0; i < value; i++) {
                 System.out.printf("=");
             }
-
-            System.out.printf("(" + value + ")\n");
+            System.out.printf(occurence);
+            // System.out.printf("(" + value + ")\n");
         }
     }
 }
