@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import java.io.PrintStream;
 
 public class DevChallenge {
 
@@ -9,13 +10,13 @@ public class DevChallenge {
 
     public static void main(String args[]) throws Exception {
         BufferedReader infile = new BufferedReader(new FileReader("Java_Histogram/input.txt"));
+        PrintStream fileout = new PrintStream("Java_Histogram/output.txt");
         String line;
         Map<String, Integer> histogram = new HashMap<String, Integer>();
         while ((line = infile.readLine()) != null) {
 
             line = line.replace(".", "").replace(",", "").toLowerCase();
             String[] words = line.split(" ");
-            // System.out.println(line);
 
             for (String word : words) {
                 Integer f = histogram.get(word);
@@ -27,6 +28,8 @@ public class DevChallenge {
 
             }
         }
+
+        System.setOut(fileout);
         infile.close();
 
         Map<String, Integer> sortedMapDesc = sortByValue(histogram, DESC);
@@ -58,7 +61,6 @@ public class DevChallenge {
                 System.out.printf("=");
             }
             System.out.printf(occurence);
-            // System.out.printf("(" + value + ")\n");
         }
     }
 }
