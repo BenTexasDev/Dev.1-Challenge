@@ -54,7 +54,7 @@ public class DevChallenge {
 
             int value = map.get(m);
             String separate = "|";
-            String occurence = ("(" + value + ")\n");
+            String occurence = ("  (" + value + ")\n");
             System.out.printf("%-7s %-2s", m, separate);
 
             for (int i = 0; i < value; i++) {
