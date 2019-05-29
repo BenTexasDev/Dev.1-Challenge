@@ -38,46 +38,45 @@ public class DevChallenge {
         printHistogram(sortedMapDesc);
     }
 
-    private static Map <String,Integer> sortByValue(Map<String,Integer>histogram,final boolean order){
-        List<Entry<String,Integer>> list = new LinkedList<Entry<String,Integer>>(histogram.entrySet());
-
-        Collections.sort(list, new Comparator <Entry<String,Integer>>()
-        {
-            public int compare(Entry<String,Integer> o1, Entry<String,Integer> o2)
-            {
-                if (order)
-                {
+    private static Map<String, Integer> sortByValue(Map<String, Integer> histogram, final boolean order) {
+        // Sort needs a list so lets convert entrySet into a list
+        List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(histogram.entrySet());
+        // Create a custom comparator to sort entries based upon value
+        Collections.sort(list, new Comparator<Entry<String, Integer>>() {
+            @Override
+            public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+                if (order) {
                     return o1.getValue().compareTo(o2.getValue());
-                }
-                else
-                {
+                } else {
                     return o2.getValue().compareTo(o1.getValue());
                 }
             }
         });
 
-        Map<String,Integer> sortedMap = new LinkedHashMap<String,Integer>();
-        for (Entry<String,Integer> entry: list)
-        {
+        Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        // Copy entries from list to map
+        for (Entry<String, Integer> entry : list) {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
 
         return sortedMap;
     }
-    
 
-   /* private static Map<String, Integer> sortByValue(Map<String, Integer> histogram, final boolean order) {
-        List<Entry<String, Integer>> list = new LinkedList<>(histogram.entrySet());
-
-        // Sorting the list based on values
-        list.sort((o1, o2) -> order
-                ? o1.getValue().compareTo(o2.getValue()) == 0 ? o1.getKey().compareTo(o2.getKey())
-                        : o1.getValue().compareTo(o2.getValue())
-                : o2.getValue().compareTo(o1.getValue()) == 0 ? o2.getKey().compareTo(o1.getKey())
-                        : o2.getValue().compareTo(o1.getValue()));
-        return list.stream().collect(Collectors.toMap(Entry::getKey, Entry::getValue, (a, b) -> b, LinkedHashMap::new));
-
-    }*/
+    /*
+     * private static Map<String, Integer> sortByValue(Map<String, Integer>
+     * histogram, final boolean order) { List<Entry<String, Integer>> list = new
+     * LinkedList<>(histogram.entrySet());
+     * 
+     * // Sorting the list based on values list.sort((o1, o2) -> order ?
+     * o1.getValue().compareTo(o2.getValue()) == 0 ?
+     * o1.getKey().compareTo(o2.getKey()) : o1.getValue().compareTo(o2.getValue()) :
+     * o2.getValue().compareTo(o1.getValue()) == 0 ?
+     * o2.getKey().compareTo(o1.getKey()) : o2.getValue().compareTo(o1.getValue()));
+     * return list.stream().collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+     * (a, b) -> b, LinkedHashMap::new));
+     * 
+     * }
+     */
 
     private static void printHistogram(Map<String, Integer> map) {
         for (String m : map.keySet()) {
