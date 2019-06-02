@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
+import java.io.BufferedOutputStream;
 import java.util.Comparator;
 /**
  * 
@@ -17,7 +18,7 @@ public class DevChallenge {
     private static boolean DESC = false;
     public static void main(String args[]) throws Exception {
         BufferedReader infile = new BufferedReader(new FileReader("Java_Histogram/input.txt"));
-        PrintStream fileOut = new PrintStream("Java_Histogram/output.txt");
+        PrintStream fileOut = new PrintStream(new BufferedOutputStream(new FileOutputStream("Java_Histogram/output.txt")), true);
         String line;
         Map<String, Integer> histogram = new HashMap<String, Integer>();
         while ((line = infile.readLine()) != null) {
