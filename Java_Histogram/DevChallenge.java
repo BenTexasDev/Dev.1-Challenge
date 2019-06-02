@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
-//import java.util.stream.Collectors;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import java.util.Comparator;
@@ -18,8 +17,9 @@ public class DevChallenge {
         while ((line = infile.readLine()) != null) {
 
             line = line.replace(".", "").replace(",", "").toLowerCase();
-            String[] words = line.split(" ");
 
+            String[] words = line.split(" ");
+            
             for (String word : words) {
                 Integer f = histogram.get(word);
                 if (f == null) {
@@ -61,22 +61,6 @@ public class DevChallenge {
 
         return sortedMap;
     }
-
-    /*
-     * private static Map<String, Integer> sortByValue(Map<String, Integer>
-     * histogram, final boolean order) { List<Entry<String, Integer>> list = new
-     * LinkedList<>(histogram.entrySet());
-     * 
-     * // Sorting the list based on values list.sort((o1, o2) -> order ?
-     * o1.getValue().compareTo(o2.getValue()) == 0 ?
-     * o1.getKey().compareTo(o2.getKey()) : o1.getValue().compareTo(o2.getValue()) :
-     * o2.getValue().compareTo(o1.getValue()) == 0 ?
-     * o2.getKey().compareTo(o1.getKey()) : o2.getValue().compareTo(o1.getValue()));
-     * return list.stream().collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-     * (a, b) -> b, LinkedHashMap::new));
-     * 
-     * }
-     */
 
     private static void printHistogram(Map<String, Integer> map) {
         for (String m : map.keySet()) {
