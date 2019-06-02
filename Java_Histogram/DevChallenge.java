@@ -4,14 +4,20 @@ import java.util.Map.Entry;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import java.util.Comparator;
-
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 public class DevChallenge {
 
     private static boolean DESC = false;
-
     public static void main(String args[]) throws Exception {
         BufferedReader infile = new BufferedReader(new FileReader("Java_Histogram/input.txt"));
-        PrintStream fileout = new PrintStream("Java_Histogram/output.txt");
+        PrintStream fileOut = new PrintStream("Java_Histogram/output.txt");
         String line;
         Map<String, Integer> histogram = new HashMap<String, Integer>();
         while ((line = infile.readLine()) != null) {
@@ -19,7 +25,7 @@ public class DevChallenge {
             line = line.replace(".", "").replace(",", "").toLowerCase();
 
             String[] words = line.split(" ");
-            
+
             for (String word : words) {
                 Integer f = histogram.get(word);
                 if (f == null) {
@@ -31,7 +37,7 @@ public class DevChallenge {
             }
         }
 
-        System.setOut(fileout);
+        System.setOut(fileOut);
         infile.close();
 
         Map<String, Integer> sortedMapDesc = sortByValue(histogram, DESC);
