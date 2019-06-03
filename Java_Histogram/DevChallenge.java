@@ -6,11 +6,16 @@ import java.util.LinkedHashMap;
 import java.io.BufferedOutputStream;
 import java.util.Comparator;
 /**
- * The DevChallenge class provides
+ * The DevChallenge class provides the full solution to the Developer 1 Challenge.
+ * This program reads in a paragraph form a file (input.txt).
+ * Generates a histogram of the words used, sorted from most occurences to least.
+ * The output will consist of the word followed by a pipe character ("|"), a number of 
+ * equal signs that are proportional to the number of occurences found in the text, and
+ * the number of occurences itself. When the program is run the output is stored in an output file (output.txt)
  */
 public class DevChallenge {
     /**
-     * 
+     * Please anticipate providing details regarding not only your code, but your overall design.
      * @param args
      * @throws Exception
      */
@@ -43,12 +48,12 @@ public class DevChallenge {
         Map<String, Integer> sortedMapDesc = sortByValue(histogram, DESC);
         printHistogram(sortedMapDesc);
     }
-/**
- * 
- * @param histogram
- * @param order
- * @return
- */
+    /**
+     * Please anticipate providing details regarding not only your code, but your overall design.
+     * @param histogram
+     * @param order
+     * @return
+     */
     private static Map<String, Integer> sortByValue(Map<String, Integer> histogram, final boolean order) {
         // Sort needs a list so lets convert entrySet into a list
         List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(histogram.entrySet());
@@ -72,10 +77,10 @@ public class DevChallenge {
 
         return sortedMap;
     }
-/**
- * printHistogram will print the sorted histogram.
- * @param map
- */
+    /**
+     * Please anticipate providing details regarding not only your code, but your overall design.
+     * @param map
+     */
     private static void printHistogram(Map<String, Integer> map) {
         for (String m : map.keySet()) {
 
