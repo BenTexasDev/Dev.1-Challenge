@@ -33,7 +33,7 @@ public class DevChallenge {
         Map<String, Integer> histogram = new HashMap<String, Integer>();
         while ((line = infile.readLine()) != null) {
 
-            line = line.replace(".", "").replace(",", "").toLowerCase();
+            line = line.replace(".", "").replace(",", "").replace("\n", "").toLowerCase();
 
             String[] words = line.split(" ");
 
