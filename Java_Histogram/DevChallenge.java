@@ -5,24 +5,30 @@ import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import java.io.BufferedOutputStream;
 import java.util.Comparator;
+
 /**
- * The DevChallenge class provides the full solution to the Developer 1 Challenge.
- * This program reads in a paragraph form a file (input.txt).
- * Generates a histogram of the words used, sorted from most occurences to least.
- * The output will consist of the word followed by a pipe character ("|"), a number of 
- * equal signs that are proportional to the number of occurences found in the text, and
- * the number of occurences itself. When the program is run the output is stored in an output file (output.txt)
+ * The DevChallenge class provides the full solution to the Developer 1
+ * Challenge. This program reads in a paragraph form a file (input.txt).
+ * Generates a histogram of the words used, sorted from most occurences to
+ * least. The output will consist of the word followed by a pipe character
+ * ("|"), a number of equal signs that are proportional to the number of
+ * occurences found in the text, and the number of occurences itself. When the
+ * program is run the output is stored in an output file (output.txt)
  */
 public class DevChallenge {
     /**
-     * Please anticipate providing details regarding not only your code, but your overall design.
+     * Please anticipate providing details regarding not only your code, but your
+     * overall design.
+     * 
      * @param args
      * @throws Exception
      */
     private static boolean DESC = false;
+
     public static void main(String args[]) throws Exception {
         BufferedReader infile = new BufferedReader(new FileReader("Java_Histogram/input.txt"));
-        PrintStream fileOut = new PrintStream(new BufferedOutputStream(new FileOutputStream("Java_Histogram/output.txt")), true);
+        PrintStream fileOut = new PrintStream(
+                new BufferedOutputStream(new FileOutputStream("Java_Histogram/output.txt")), true);
         String line;
         Map<String, Integer> histogram = new HashMap<String, Integer>();
         while ((line = infile.readLine()) != null) {
@@ -48,8 +54,11 @@ public class DevChallenge {
         Map<String, Integer> sortedMapDesc = sortByValue(histogram, DESC);
         printHistogram(sortedMapDesc);
     }
+
     /**
-     * Please anticipate providing details regarding not only your code, but your overall design.
+     * Please anticipate providing details regarding not only your code, but your
+     * overall design.
+     * 
      * @param histogram
      * @param order
      * @return
@@ -77,8 +86,11 @@ public class DevChallenge {
 
         return sortedMap;
     }
+
     /**
-     * Please anticipate providing details regarding not only your code, but your overall design.
+     * Please anticipate providing details regarding not only your code, but your
+     * overall design.
+     * 
      * @param map
      */
     private static void printHistogram(Map<String, Integer> map) {
