@@ -6,15 +6,14 @@ import java.util.LinkedHashMap;
 import java.io.BufferedOutputStream;
 import java.util.Comparator;
 /**
- * 
- * 
- * 
- * 
- * 
- * 
+ * The DevChallenge class provides
  */
 public class DevChallenge {
-
+    /**
+     * 
+     * @param args
+     * @throws Exception
+     */
     private static boolean DESC = false;
     public static void main(String args[]) throws Exception {
         BufferedReader infile = new BufferedReader(new FileReader("Java_Histogram/input.txt"));
@@ -44,7 +43,12 @@ public class DevChallenge {
         Map<String, Integer> sortedMapDesc = sortByValue(histogram, DESC);
         printHistogram(sortedMapDesc);
     }
-
+/**
+ * 
+ * @param histogram
+ * @param order
+ * @return
+ */
     private static Map<String, Integer> sortByValue(Map<String, Integer> histogram, final boolean order) {
         // Sort needs a list so lets convert entrySet into a list
         List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(histogram.entrySet());
@@ -68,7 +72,10 @@ public class DevChallenge {
 
         return sortedMap;
     }
-
+/**
+ * printHistogram will print the sorted histogram.
+ * @param map
+ */
     private static void printHistogram(Map<String, Integer> map) {
         for (String m : map.keySet()) {
 
